@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: black;
+}
+
+body {
+    margin:2em;
+    display: grid;
+    width: 400px;
+    height: 600px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 100px;
+    /* grid-template-areas:
+        "d d d d"
+        "t t t s"
+        "n n n s"
+        "n n n s"
+        "n n n s"
+        "n n n s"; */
+}
+
+.display {
+    /* grid-area: "d"; */
+    grid-area: 1 / 1 / 1 / 3;
+    width: 400px;
+    background-color: #82C276;
+}
+
+.top-ops {
+    display: grid;
+    grid-area: 2/1/2/4;
+    /* grid-area: "t"; */
+    /* grid-row-end: span 3 ; */
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.side-ops {
+    /* grid-area: "s"; */
+    grid-area: 2 / 4 / 6 / 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 100px;
+}
+
+.number-pad {
+    /* grid-area: "n"; */
+    grid-area: 3 / 1 / 6 / 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 100px;
+    /* grid-template-areas:
+        "b b b"
+        "b b b"
+        "b b b"
+        "z z b"; */
+}
+
+.zero {
+    grid-area: 4 / 1 / 4 / 3;
+}
+
+.button {
+    grid-area: "b";
+    background-color: #61B34F;
+}
+
+.operator {
+    /* grid-area: "o"; */
+    background-color: #82C276;
+}
+
+.display {
+    grid-area: "d";
+    width: 400px;
+    background-color: #82C276;
+}
+
+
