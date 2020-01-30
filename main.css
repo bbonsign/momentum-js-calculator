@@ -69,14 +69,13 @@ body {
     justify-self: left;
     display: flex;
     flex-flow: row-reverse wrap;
+}
 
-}
-.zero {
+/* .zero {
     flex-grow: 2;
-}
+} */
 
 .button {
-    background-color: rgb(155, 79, 35);
     height: 10vw;
     border: .5px solid rgba(23, 41, 68, 0.6);
     font-size: 1.5rem;
@@ -87,12 +86,17 @@ body {
     background-color: #61B34F;
 }
 
+.ans {
+    width: 33.33%;
+}
 
+.clear {
+    background-color: rgb(155, 79, 35);
+}
 
 .side-ops {
     width: 25%;
     display: grid;
-
     grid-template-columns: 1fr;
 }
 
