@@ -14,6 +14,10 @@ clearButton.addEventListener("click", clearInput) // defined
 let answerButton = document.querySelector(".ans");
 answerButton.addEventListener("click", appendPreviousAnswer)
 
+let calcContainer = document.querySelector("body");
+calcContainer.addEventListener("keypress", keyboardInteraction);
+calcContainer.addEventListener("keydown", allowBackspace);
+
 
 // Set up variables to control the display
 let display = document.querySelector(".display");
@@ -22,7 +26,7 @@ let history = []; // will be an array or array pairs: [ [ "input sting", "result
 let inputArea = document.querySelector(".input");
 let inputString = "";
 
-function updateInputArea(){
+function updateInputArea() {
     inputArea.innerText = inputString;
 }
 
@@ -42,7 +46,7 @@ function addToHistory(input, result) {
 function clearDisplayHistory() {
     let displayHistoryElements = document.querySelectorAll(".history");
     // if (displayHistoryElements.length > 0) {
-    for (let i = 0; i < displayHistoryElements.length ; i++) {
+    for (let i = 0; i < displayHistoryElements.length; i++) {
         displayHistoryElements[i].remove();
     }
     // }
@@ -102,11 +106,35 @@ function evaluateInput(event) {
     clearInput();
 }
 
-// TODO
 function appendPreviousAnswer() {
     if (history.length == 0) {
         inputString += "";
     }
     inputString += history[0][1];
     updateInputArea();
+}
+
+function keyboardInteraction(event) {
+    let key = event.key;
+    let inputs = ".0123456789/*-+%^)(";
+
+    if (inputs.includes(key)) {
+        inputString += key;
+        updateInputArea();
+    }
+    else if (key == "Enter" || key == "=") {
+        evaluateInput();
+    }
+    else if (key == "c") {
+        clearInput();
+    }
+}
+
+function allowBackspace(event) {
+    let key = event.key;
+    console.log(key);
+    if (key == "Backspace" && inputString.length > 0) {
+        inputString = inputString.slice(0,inputString.length-1);
+        updateInputArea();
+    }
 }
