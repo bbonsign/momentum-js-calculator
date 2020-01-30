@@ -132,7 +132,6 @@ function keyboardInteraction(event) {
 
 function allowBackspace(event) {
     let key = event.key;
-    console.log(key);
     if (key == "Backspace" && inputString.length > 0) {
         inputString = inputString.slice(0,inputString.length-1);
         updateInputArea();
